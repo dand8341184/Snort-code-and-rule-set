@@ -1,0 +1,765 @@
+Running in IDS mode
+
+        --== Initializing Snort ==--
+Initializing Output Plugins!
+-------------------------------------------------
+ Keyword     |          Output @ 
+-------------------------------------------------
+alert_syslog :       0x460a17
+log_tcpdump  :       0x462f08
+alert_fast   :       0x45fb60
+alert_full   :       0x4603a3
+alert_unixsock:       0x461782
+alert_CSV    :       0x461d2e
+log_null     :       0x462dec
+log_unified2 :       0x466413
+alert_unified2:       0x466301
+unified2     :       0x463c5a
+log_ascii    :       0x46699a
+alert_sf_socket:       0x4677ef
+alert_sf_socket_sid:       0x467b45
+alert_test   :       0x46830e
+-------------------------------------------------
+
+Initializing Preprocessors!
+Initializing Plug-ins!
+-------------------------------------------------
+ Keyword     |       Preprocessor @ 
+-------------------------------------------------
+arpspoof     :       0x4965bb
+arpspoof_detect_host:       0x4967a9
+normalize_ip4:       0x4c6c8a
+normalize_icmp4:       0x4c6ce1
+normalize_ip6:       0x4c6d34
+normalize_icmp6:       0x4c6d8b
+normalize_tcp:       0x4c6dde
+frag3_global :       0x4b5a8d
+frag3_engine :       0x4b5ea4
+stream5_global:       0x4c0164
+stream5_tcp  :       0x4bccb1
+stream5_udp  :       0x4bcd5e
+stream5_icmp :       0x4bcdd5
+stream5_ip   :       0x4bce4c
+rpc_decode   :       0x498b9e
+bo           :       0x4976fd
+http_inspect :       0x4a60fb
+http_inspect_server:       0x4a60fb
+PerfMonitor  :       0x49afad
+sfportscan   :       0x4b3e28
+-------------------------------------------------
+
+-------------------------------------------------
+ Keyword     |      Plugin Registered @
+-------------------------------------------------
+content      :      0x47d49f
+uricontent   :      0x47da59
+protected_content:      0x47db0b
+http_method  :      0x47dbe7
+http_uri     :      0x47dc6c
+http_header  :      0x47dcf1
+http_cookie  :      0x47dd76
+http_client_body:      0x47ddfb
+http_raw_uri :      0x47de80
+http_raw_header:      0x47df05
+http_raw_cookie:      0x47df8a
+http_stat_code:      0x47e00f
+http_stat_msg:      0x47e094
+offset       :      0x47e1ac
+depth        :      0x47e2d7
+distance     :      0x47e44f
+within       :      0x47e5a6
+hash         :      0x47eb9a
+length       :      0x47ec7e
+nocase       :      0x47e744
+rawbytes     :      0x47e81d
+fast_pattern :      0x47e875
+replace      :      0x483b8c
+flags        :      0x4860d1
+itype        :      0x47926e
+icode        :      0x477cb9
+ttl          :      0x487411
+id           :      0x47a729
+ack          :      0x485c68
+seq          :      0x4868dd
+dsize        :      0x474642
+ipopts       :      0x47bfbe
+rpc          :      0x4847c3
+icmp_id      :      0x478705
+icmp_seq     :      0x478cb0
+session      :      0x485050
+tos          :      0x47ba3e
+fragbits     :      0x479c97
+fragoffset   :      0x47a18a
+window       :      0x486d9d
+ip_proto     :      0x47abda
+sameip       :      0x47b614
+flow         :      0x4730a2
+pkt_data     :      0x489eff
+byte_test    :      0x46cc90
+byte_jump    :      0x46e51f
+byte_extract :      0x470987
+byte_math    :      0x471771
+isdataat     :      0x47c754
+file_data    :      0x48883f
+base64_decode:      0x488eb3
+base64_data  :      0x489bca
+pcre         :      0x482904
+flowbits     :      0x475571
+asn1         :      0x46c0ec
+react        :      0x48b550
+resp         :      0x48c097
+ftpbounce    :      0x47729e
+urilen       :      0x487e66
+cvs          :      0x473e13
+file_type    :      0x48a711
+file_group   :      0x48a76e
+-------------------------------------------------
+
+Parsing Rules file "/etc/snort/snort_local.conf"
+PortVar 'HTTP_PORTS' defined :  [ 80:81 311 383 591 593 901 1220 1414 1741 1830 2301 2381 2809 3037 3128 3702 4343 4848 5250 6988 7000:7001 7144:7145 7510 7777 7779 8000 8008 8014 8028 8080 8085 8088 8090 8118 8123 8180:8181 8243 8280 8300 8800 8888 8899 9000 9060 9080 9090:9091 9443 9999 11371 34443:34444 41080 50002 55555 ]
+PortVar 'SHELLCODE_PORTS' defined :  [ 0:79 81:65535 ]
+PortVar 'ORACLE_PORTS' defined :  [ 1024:65535 ]
+PortVar 'SSH_PORTS' defined :  [ 22 ]
+PortVar 'FTP_PORTS' defined :  [ 21 2100 3535 ]
+PortVar 'SIP_PORTS' defined :  [ 5060:5061 5600 ]
+PortVar 'FILE_DATA_PORTS' defined :  [ 80:81 110 143 311 383 591 593 901 1220 1414 1741 1830 2301 2381 2809 3037 3128 3702 4343 4848 5250 6988 7000:7001 7144:7145 7510 7777 7779 8000 8008 8014 8028 8080 8085 8088 8090 8118 8123 8180:8181 8243 8280 8300 8800 8888 8899 9000 9060 9080 9090:9091 9443 9999 11371 34443:34444 41080 50002 55555 ]
+PortVar 'GTP_PORTS' defined :  [ 2123 2152 3386 ]
+Detection:
+   Search-Method = AC-Full-Q
+    Split Any/Any group = enabled
+    Search-Method-Optimizations = enabled
+    Maximum pattern length = 20
+Tagged Packet Limit: 256
+Loading dynamic engine /usr/local/lib/snort_dynamicengine/libsf_engine.so... done
+Loading all dynamic detection libs from /usr/local/lib/snort_dynamicrules...
+WARNING: No dynamic libraries found in directory /usr/local/lib/snort_dynamicrules.
+  Finished Loading all dynamic detection libs from /usr/local/lib/snort_dynamicrules
+Loading all dynamic preprocessor libs from /usr/local/lib/snort_dynamicpreprocessor/...
+  Loading dynamic preprocessor library /usr/local/lib/snort_dynamicpreprocessor//libsf_reputation_preproc.so... done
+  Loading dynamic preprocessor library /usr/local/lib/snort_dynamicpreprocessor//libsf_smtp_preproc.so... done
+  Loading dynamic preprocessor library /usr/local/lib/snort_dynamicpreprocessor//libsf_sip_preproc.so... done
+  Loading dynamic preprocessor library /usr/local/lib/snort_dynamicpreprocessor//libsf_ftptelnet_preproc.so... done
+  Loading dynamic preprocessor library /usr/local/lib/snort_dynamicpreprocessor//libsf_dns_preproc.so... done
+  Loading dynamic preprocessor library /usr/local/lib/snort_dynamicpreprocessor//libsf_imap_preproc.so... done
+  Loading dynamic preprocessor library /usr/local/lib/snort_dynamicpreprocessor//libsf_sdf_preproc.so... done
+  Loading dynamic preprocessor library /usr/local/lib/snort_dynamicpreprocessor//libsf_modbus_preproc.so... done
+  Loading dynamic preprocessor library /usr/local/lib/snort_dynamicpreprocessor//libsf_ssl_preproc.so... done
+  Loading dynamic preprocessor library /usr/local/lib/snort_dynamicpreprocessor//libsf_dnp3_preproc.so... done
+  Loading dynamic preprocessor library /usr/local/lib/snort_dynamicpreprocessor//libsf_ssh_preproc.so... done
+  Loading dynamic preprocessor library /usr/local/lib/snort_dynamicpreprocessor//libsf_pop_preproc.so... done
+  Loading dynamic preprocessor library /usr/local/lib/snort_dynamicpreprocessor//libsf_dce2_preproc.so... done
+  Loading dynamic preprocessor library /usr/local/lib/snort_dynamicpreprocessor//libsf_gtp_preproc.so... done
+  Finished Loading all dynamic preprocessor libs from /usr/local/lib/snort_dynamicpreprocessor/
+Log directory = /var/log/snort
+WARNING: ip4 normalizations disabled because not inline.
+WARNING: tcp normalizations disabled because not inline.
+WARNING: icmp4 normalizations disabled because not inline.
+WARNING: ip6 normalizations disabled because not inline.
+WARNING: icmp6 normalizations disabled because not inline.
+Frag3 global config:
+    Max frags: 65536
+    Fragment memory cap: 4194304 bytes
+Frag3 engine config:
+    Bound Address: default
+    Target-based policy: WINDOWS
+    Fragment timeout: 180 seconds
+    Fragment min_ttl:   1
+    Fragment Anomalies: Alert
+    Overlap Limit:     10
+    Min fragment Length:     100
+      Max Expected Streams: 768
+Stream global config:
+    Track TCP sessions: ACTIVE
+    Max TCP sessions: 262144
+    TCP cache pruning timeout: 30 seconds
+    TCP cache nominal timeout: 3600 seconds
+    Memcap (for reassembly packet storage): 8388608
+    Track UDP sessions: ACTIVE
+    Max UDP sessions: 131072
+    UDP cache pruning timeout: 30 seconds
+    UDP cache nominal timeout: 180 seconds
+    Track ICMP sessions: INACTIVE
+    Track IP sessions: INACTIVE
+    Log info if session memory consumption exceeds 1048576
+    Send up to 2 active responses
+    Wait at least 5 seconds between responses
+    Protocol Aware Flushing: ACTIVE
+        Maximum Flush Point: 16000
+Stream TCP Policy config:
+    Bound Address: default
+    Reassembly Policy: WINDOWS
+    Timeout: 180 seconds
+    Limit on TCP Overlaps: 10
+    Maximum number of bytes to queue per session: 1048576
+    Maximum number of segs to queue per session: 2621
+    Options:
+        Require 3-Way Handshake: YES
+        3-Way Handshake Timeout: 180
+        Detect Anomalies: YES
+    Reassembly Ports:
+      21 client (Footprint) 
+      22 client (Footprint) 
+      23 client (Footprint) 
+      25 client (Footprint) 
+      42 client (Footprint) 
+      53 client (Footprint) 
+      79 client (Footprint) 
+      80 client (Footprint) server (Footprint)
+      81 client (Footprint) server (Footprint)
+      109 client (Footprint) 
+      110 client (Footprint) 
+      111 client (Footprint) 
+      113 client (Footprint) 
+      119 client (Footprint) 
+      135 client (Footprint) 
+      136 client (Footprint) 
+      137 client (Footprint) 
+      139 client (Footprint) 
+      143 client (Footprint) 
+      161 client (Footprint) 
+      additional ports configured but not printed.
+Stream UDP Policy config:
+    Timeout: 180 seconds
+HttpInspect Config:
+    GLOBAL CONFIG
+      Detect Proxy Usage:       NO
+      IIS Unicode Map Filename: /etc/snort/unicode.map
+      IIS Unicode Map Codepage: 1252
+      Memcap used for logging URI and Hostname: 150994944
+      Max Gzip Memory: 838860
+      Max Gzip Sessions: 1613
+      Gzip Compress Depth: 65535
+      Gzip Decompress Depth: 65535
+    DEFAULT SERVER CONFIG:
+      Server profile: All
+      Ports (PAF): 80 81 311 383 591 593 901 1220 1414 1741 1830 2301 2381 2809 3037 3128 3702 4343 4848 5250 6988 7000 7001 7144 7145 7510 7777 7779 8000 8008 8014 8028 8080 8085 8088 8090 8118 8123 8180 8181 8243 8280 8300 8800 8888 8899 9000 9060 9080 9090 9091 9443 9999 11371 34443 34444 41080 50002 55555 
+      Server Flow Depth: 0
+      Client Flow Depth: 0
+      Max Chunk Length: 500000
+      Small Chunk Length Evasion: chunk size <= 10, threshold >= 5 times
+      Max Header Field Length: 750
+      Max Number Header Fields: 100
+      Max Number of WhiteSpaces allowed with header folding: 200
+      Inspect Pipeline Requests: YES
+      URI Discovery Strict Mode: NO
+      Allow Proxy Usage: NO
+      Disable Alerting: NO
+      Oversize Dir Length: 500
+      Only inspect URI: NO
+      Normalize HTTP Headers: NO
+      Inspect HTTP Cookies: YES
+      Inspect HTTP Responses: YES
+      Extract Gzip from responses: YES
+      Decompress response files:   
+      Unlimited decompression of gzip data from responses: YES
+      Normalize Javascripts in HTTP Responses: YES
+      Max Number of WhiteSpaces allowed with Javascript Obfuscation in HTTP responses: 200
+      Normalize HTTP Cookies: NO
+      Enable XFF and True Client IP: NO
+      Log HTTP URI data: NO
+      Log HTTP Hostname data: NO
+      Extended ASCII code support in URI: NO
+      Ascii: YES alert: NO
+      Double Decoding: YES alert: NO
+      %U Encoding: YES alert: YES
+      Bare Byte: YES alert: NO
+      UTF 8: YES alert: NO
+      IIS Unicode: YES alert: NO
+      Multiple Slash: YES alert: NO
+      IIS Backslash: YES alert: NO
+      Directory Traversal: YES alert: NO
+      Web Root Traversal: YES alert: NO
+      Apache WhiteSpace: YES alert: NO
+      IIS Delimiter: YES alert: NO
+      IIS Unicode Map: GLOBAL IIS UNICODE MAP CONFIG
+      Non-RFC Compliant Characters: 0x00 0x01 0x02 0x03 0x04 0x05 0x06 0x07 
+      Whitespace Characters: 0x09 0x0b 0x0c 0x0d 
+      Legacy mode: YES
+rpc_decode arguments:
+    Ports to decode RPC on: 111 32770 32771 32772 32773 32774 32775 32776 32777 32778 32779 
+    alert_fragments: INACTIVE
+    alert_large_fragments: INACTIVE
+    alert_incomplete: INACTIVE
+    alert_multiple_requests: INACTIVE
+FTPTelnet Config:
+    GLOBAL CONFIG
+      Inspection Type: stateful
+      Check for Encrypted Traffic: YES alert: NO
+      Continue to check encrypted data: YES
+    TELNET CONFIG:
+      Ports: 23 
+      Are You There Threshold: 20
+      Normalize: YES
+      Detect Anomalies: YES
+    FTP CONFIG:
+      FTP Server: default
+        Ports (PAF): 21 2100 3535 
+        Check for Telnet Cmds: YES alert: YES
+        Ignore Telnet Cmd Operations: YES alert: YES
+        Ignore open data channels: NO
+      FTP Client: default
+        Check for Bounce Attacks: YES alert: YES
+        Check for Telnet Cmds: YES alert: YES
+        Ignore Telnet Cmd Operations: YES alert: YES
+        Max Response Length: 256
+SMTP Config:
+    Ports: 25 465 587 691 
+    Inspection Type: Stateful
+    Normalize: ATRN AUTH BDAT DATA DEBUG EHLO EMAL ESAM ESND ESOM ETRN EVFY EXPN HELO HELP IDENT MAIL NOOP ONEX QUEU QUIT RCPT RSET SAML SEND STARTTLS SOML TICK TIME TURN TURNME VERB VRFY X-EXPS XADR XAUTH XCIR XEXCH50 XGEN XLICENSE X-LINK2STATE XQUE XSTA XTRN XUSR CHUNKING X-ADAT X-DRCP X-ERCP X-EXCH50 
+    Ignore Data: No
+    Ignore TLS Data: No
+    Ignore SMTP Alerts: No
+    Max Command Line Length: 512
+    Max auth Command Line Length: 1000
+    Max Specific Command Line Length: 
+       ATRN:255 AUTH:246 BDAT:255 DATA:246 DEBUG:255 
+       EHLO:500 EMAL:255 ESAM:255 ESND:255 ESOM:255 
+       ETRN:246 EVFY:255 EXPN:255 HELO:500 HELP:500 
+       IDENT:255 MAIL:260 NOOP:255 ONEX:246 QUEU:246 
+       QUIT:246 RCPT:300 RSET:246 SAML:246 SEND:246 
+       SIZE:255 STARTTLS:246 SOML:246 TICK:246 TIME:246 
+       TURN:246 TURNME:246 VERB:246 VRFY:255 X-EXPS:246 
+       XADR:246 XAUTH:246 XCIR:246 XEXCH50:246 XGEN:246 
+       XLICENSE:246 X-LINK2STATE:246 XQUE:246 XSTA:246 XTRN:246 
+       XUSR:246 
+    Max Header Line Length: 1000
+    Max Response Line Length: 512
+    X-Link2State Alert: Yes
+    Drop on X-Link2State Alert: No
+    Alert on commands: None
+    Alert on unknown commands: No
+    SMTP Memcap: 838860
+    MIME Max Mem: 838860
+    Base64 Decoding: Enabled
+    Base64 Decoding Depth: Unlimited
+    Quoted-Printable Decoding: Enabled
+    Quoted-Printable Decoding Depth: Unlimited
+    Unix-to-Unix Decoding: Enabled
+    Unix-to-Unix Decoding Depth: Unlimited
+    Non-Encoded MIME attachment Extraction: Enabled
+    Non-Encoded MIME attachment Extraction Depth: Unlimited
+    Log Attachment filename: Enabled
+    Log MAIL FROM Address: Enabled
+    Log RCPT TO Addresses: Enabled
+    Log Email Headers: Enabled
+    Email Hdrs Log Depth: 1464
+SSH config: 
+    Autodetection: ENABLED
+    Challenge-Response Overflow Alert: ENABLED
+    SSH1 CRC32 Alert: ENABLED
+    Server Version String Overflow Alert: ENABLED
+    Protocol Mismatch Alert: ENABLED
+    Bad Message Direction Alert: DISABLED
+    Bad Payload Size Alert: DISABLED
+    Unrecognized Version Alert: DISABLED
+    Max Encrypted Packets: 20  
+    Max Server Version String Length: 100  
+    MaxClientBytes: 19600 (Default) 
+    Ports:
+	22
+DCE/RPC 2 Preprocessor Configuration
+  Global Configuration
+    DCE/RPC Defragmentation: Enabled
+    Memcap: 102400 KB
+    Events: co 
+    SMB Fingerprint policy: Disabled
+  Server Default Configuration
+    Policy: WinXP
+    Detect ports (PAF)
+      SMB: 139 445 
+      TCP: 135 
+      UDP: 135 
+      RPC over HTTP server: 593 
+      RPC over HTTP proxy: None
+    Autodetect ports (PAF)
+      SMB: None
+      TCP: 1025-65535 
+      UDP: 1025-65535 
+      RPC over HTTP server: 1025-65535 
+      RPC over HTTP proxy: None
+    Invalid SMB shares: C$ D$ ADMIN$ 
+    Maximum SMB command chaining: 3 commands
+    SMB file inspection: Disabled
+DNS config: 
+    DNS Client rdata txt Overflow Alert: ACTIVE
+    Obsolete DNS RR Types Alert: INACTIVE
+    Experimental DNS RR Types Alert: INACTIVE
+    Ports: 53
+SSLPP config:
+    Encrypted packets: not inspected
+    Ports:
+      443      465      563      636      989
+      992      993      994      995     7801
+     7802     7900     7901     7902     7903
+     7904     7905     7906     7907     7908
+     7909     7910     7911     7912     7913
+     7914     7915     7916     7917     7918
+     7919     7920
+    Server side data is trusted
+    Maximum SSL Heartbeat length: 0
+Sensitive Data preprocessor config: 
+    Global Alert Threshold: 25
+    Masked Output: DISABLED
+SIP config: 
+    Max number of sessions: 40000  
+    Max number of dialogs in a session: 4 (Default) 
+    Status: ENABLED
+    Ignore media channel: DISABLED
+    Max URI length: 512  
+    Max Call ID length: 80  
+    Max Request name length: 20 (Default) 
+    Max From length: 256 (Default) 
+    Max To length: 256 (Default) 
+    Max Via length: 1024 (Default) 
+    Max Contact length: 512  
+    Max Content length: 2048  
+    Ports:
+	5060	5061	5600
+    Methods:
+	  invite cancel ack bye register options refer subscribe update join info message notify benotify do qauth sprack publish service unsubscribe prack
+IMAP Config:
+    Ports: 143 
+    IMAP Memcap: 838860
+    MIME Max Mem: 838860
+    Base64 Decoding: Enabled
+    Base64 Decoding Depth: Unlimited
+    Quoted-Printable Decoding: Enabled
+    Quoted-Printable Decoding Depth: Unlimited
+    Unix-to-Unix Decoding: Enabled
+    Unix-to-Unix Decoding Depth: Unlimited
+    Non-Encoded MIME attachment Extraction: Enabled
+    Non-Encoded MIME attachment Extraction Depth: Unlimited
+POP Config:
+    Ports: 110 
+    POP Memcap: 838860
+    MIME Max Mem: 838860
+    Base64 Decoding: Enabled
+    Base64 Decoding Depth: Unlimited
+    Quoted-Printable Decoding: Enabled
+    Quoted-Printable Decoding Depth: Unlimited
+    Unix-to-Unix Decoding: Enabled
+    Unix-to-Unix Decoding Depth: Unlimited
+    Non-Encoded MIME attachment Extraction: Enabled
+    Non-Encoded MIME attachment Extraction Depth: Unlimited
+Modbus config: 
+    Ports:
+	502
+DNP3 config: 
+    Memcap: 262144
+    Check Link-Layer CRCs: ENABLED
+    Ports:
+	20000
+Reputation config: 
+WARNING: Can't find any whitelist/blacklist entries. Reputation Preprocessor disabled.
+
++++++++++++++++++++++++++++++++++++++++++++++++++++
+Initializing rule chains...
+1 Snort rules read
+    1 detection rules
+    0 decoder rules
+    0 preprocessor rules
+1 Option Chains linked into 1 Chain Headers
+0 Dynamic rules
++++++++++++++++++++++++++++++++++++++++++++++++++++
+
++-------------------[Rule Port Counts]---------------------------------------
+|             tcp     udp    icmp      ip
+|     src       1       0       0       0
+|     dst       1       0       0       0
+|     any       0       0       0       0
+|      nc       0       0       0       0
+|     s+d       1       0       0       0
++----------------------------------------------------------------------------
+
++-----------------------[detection-filter-config]------------------------------
+| memory-cap : 1048576 bytes
++-----------------------[detection-filter-rules]-------------------------------
+| none
+-------------------------------------------------------------------------------
+
++-----------------------[rate-filter-config]-----------------------------------
+| memory-cap : 1048576 bytes
++-----------------------[rate-filter-rules]------------------------------------
+| none
+-------------------------------------------------------------------------------
+
++-----------------------[event-filter-config]----------------------------------
+| memory-cap : 1048576 bytes
++-----------------------[event-filter-global]----------------------------------
++-----------------------[event-filter-local]-----------------------------------
+| none
++-----------------------[suppression]------------------------------------------
+| none
+-------------------------------------------------------------------------------
+Rule application order: activation->dynamic->pass->drop->sdrop->reject->alert->log
+Verifying Preprocessor Configurations!
+
+[ Port Based Pattern Matching Memory ]
++- [ Aho-Corasick Summary ] -------------------------------------
+| Storage Format    : Full-Q 
+| Finite Automaton  : DFA
+| Alphabet Size     : 256 Chars
+| Sizeof State      : Variable (1,2,4 bytes)
+| Instances         : 2
+|     1 byte states : 2
+|     2 byte states : 0
+|     4 byte states : 0
+| Characters        : 2
+| States            : 4
+| Transitions       : 4
+| State Density     : 0.4%
+| Patterns          : 2
+| Match States      : 2
+| Memory (KB)       : 12.40
+|   Pattern         : 0.16
+|   Match Lists     : 0.19
+|   DFA
+|     1 byte states : 1.04
+|     2 byte states : 0.00
+|     4 byte states : 0.00
++----------------------------------------------------------------
+[ Number of patterns truncated to 20 bytes: 0 ]
+pcap DAQ configured to read-file.
+Acquiring network traffic from "/home/user/workspace/snort/resource/ctf_dc2017/ctf_dc17.pcap000".
+Reload thread starting...
+Reload thread started, thread 0x7f807b1ca700 (12726)
+WARNING: active responses disabled since DAQ can't inject packets.
+
+        --== Initialization Complete ==--
+
+   ,,_     -*> Snort! <*-
+  o"  )~   Version 2.9.9.0 GRE (Build 56) 
+   ''''    By Martin Roesch & The Snort Team: http://www.snort.org/contact#team
+           Copyright (C) 2014-2016 Cisco and/or its affiliates. All rights reserved.
+           Copyright (C) 1998-2013 Sourcefire, Inc., et al.
+           Using libpcap version 1.7.4
+           Using PCRE version: 8.38 2015-11-23
+           Using ZLIB version: 1.2.8
+
+           Rules Engine: SF_SNORT_DETECTION_ENGINE  Version 3.0  <Build 1>
+           Preprocessor Object: SF_GTP  Version 1.1  <Build 1>
+           Preprocessor Object: SF_DCERPC2  Version 1.0  <Build 3>
+           Preprocessor Object: SF_POP  Version 1.0  <Build 1>
+           Preprocessor Object: SF_SSH  Version 1.1  <Build 3>
+           Preprocessor Object: SF_DNP3  Version 1.1  <Build 1>
+           Preprocessor Object: SF_SSLPP  Version 1.1  <Build 4>
+           Preprocessor Object: SF_MODBUS  Version 1.1  <Build 1>
+           Preprocessor Object: SF_SDF  Version 1.1  <Build 1>
+           Preprocessor Object: SF_IMAP  Version 1.0  <Build 1>
+           Preprocessor Object: SF_DNS  Version 1.1  <Build 4>
+           Preprocessor Object: SF_FTPTELNET  Version 1.2  <Build 13>
+           Preprocessor Object: SF_SIP  Version 1.1  <Build 1>
+           Preprocessor Object: SF_SMTP  Version 1.1  <Build 9>
+           Preprocessor Object: SF_REPUTATION  Version 1.1  <Build 1>
+Commencing packet processing (pid=12721)
+===============================================================================
+Run time for packet processing was 7.2201 seconds
+Snort processed 771453 packets.
+Snort ran for 0 days 0 hours 0 minutes 7 seconds
+   Pkts/sec:       110207
+===============================================================================
+Memory usage summary:
+  Total non-mmapped bytes (arena):       5656576
+  Bytes in mapped regions (hblkhd):      30130176
+  Total allocated space (uordblks):      3467888
+  Total free space (fordblks):           2188688
+  Topmost releasable block (keepcost):   133152
+  Number of free chunks (ordblks):       84
+  Number of free fastbin blocks (smblks):379
+  Number of mapped regions (hblks):      28
+  Max. total allocated space (usmblks):  0
+  Free bytes held in fastbins (fsmblks): 15840
+===============================================================================
+Packet I/O Totals:
+   Received:       771453
+   Analyzed:       771453 (100.000%)
+    Dropped:            0 (  0.000%)
+   Filtered:            0 (  0.000%)
+Outstanding:            0 (  0.000%)
+   Injected:            0
+===============================================================================
+Breakdown by protocol (includes rebuilt packets):
+        Eth:       797289 (100.000%)
+       VLAN:            0 (  0.000%)
+        IP4:       797289 (100.000%)
+       Frag:            0 (  0.000%)
+       ICMP:         1649 (  0.207%)
+        UDP:           52 (  0.007%)
+        TCP:       795588 ( 99.787%)
+        IP6:            0 (  0.000%)
+    IP6 Ext:            0 (  0.000%)
+   IP6 Opts:            0 (  0.000%)
+      Frag6:            0 (  0.000%)
+      ICMP6:            0 (  0.000%)
+       UDP6:            0 (  0.000%)
+       TCP6:            0 (  0.000%)
+     Teredo:            0 (  0.000%)
+    ICMP-IP:            0 (  0.000%)
+    IP4/IP4:            0 (  0.000%)
+    IP4/IP6:            0 (  0.000%)
+    IP6/IP4:            0 (  0.000%)
+    IP6/IP6:            0 (  0.000%)
+        GRE:            0 (  0.000%)
+    GRE Eth:            0 (  0.000%)
+   GRE VLAN:            0 (  0.000%)
+    GRE IP4:            0 (  0.000%)
+    GRE IP6:            0 (  0.000%)
+GRE IP6 Ext:            0 (  0.000%)
+   GRE PPTP:            0 (  0.000%)
+    GRE ARP:            0 (  0.000%)
+    GRE IPX:            0 (  0.000%)
+   GRE Loop:            0 (  0.000%)
+       MPLS:            0 (  0.000%)
+        ARP:            0 (  0.000%)
+        IPX:            0 (  0.000%)
+   Eth Loop:            0 (  0.000%)
+   Eth Disc:            0 (  0.000%)
+   IP4 Disc:            0 (  0.000%)
+   IP6 Disc:            0 (  0.000%)
+   TCP Disc:            0 (  0.000%)
+   UDP Disc:            0 (  0.000%)
+  ICMP Disc:            0 (  0.000%)
+All Discard:            0 (  0.000%)
+      Other:            0 (  0.000%)
+Bad Chk Sum:            2 (  0.000%)
+    Bad TTL:            0 (  0.000%)
+     S5 G 1:        12517 (  1.570%)
+     S5 G 2:        13319 (  1.671%)
+      Total:       797289
+===============================================================================
+Action Stats:
+     Alerts:            0 (  0.000%)
+     Logged:            0 (  0.000%)
+     Passed:            0 (  0.000%)
+Limits:
+      Match:            0
+      Queue:            0
+        Log:            0
+      Event:            0
+      Alert:            0
+Verdicts:
+      Allow:       771437 ( 99.998%)
+      Block:            0 (  0.000%)
+    Replace:            0 (  0.000%)
+  Whitelist:           16 (  0.002%)
+  Blacklist:            0 (  0.000%)
+     Ignore:            0 (  0.000%)
+      Retry:            0 (  0.000%)
+===============================================================================
+Frag3 statistics:
+        Total Fragments: 0
+      Frags Reassembled: 0
+               Discards: 0
+          Memory Faults: 0
+               Timeouts: 0
+               Overlaps: 0
+              Anomalies: 0
+                 Alerts: 0
+                  Drops: 0
+     FragTrackers Added: 0
+    FragTrackers Dumped: 0
+FragTrackers Auto Freed: 0
+    Frag Nodes Inserted: 0
+     Frag Nodes Deleted: 0
+===============================================================================
+===============================================================================
+Stream statistics:
+            Total sessions: 102109
+              TCP sessions: 102073
+              UDP sessions: 36
+             ICMP sessions: 0
+               IP sessions: 0
+                TCP Prunes: 0
+                UDP Prunes: 0
+               ICMP Prunes: 0
+                 IP Prunes: 0
+TCP StreamTrackers Created: 107586
+TCP StreamTrackers Deleted: 107586
+              TCP Timeouts: 328
+              TCP Overlaps: 24
+       TCP Segments Queued: 97693
+     TCP Segments Released: 97693
+       TCP Rebuilt Packets: 7652
+         TCP Segments Used: 9020
+              TCP Discards: 9170
+                  TCP Gaps: 3824
+      UDP Sessions Created: 36
+      UDP Sessions Deleted: 36
+              UDP Timeouts: 0
+              UDP Discards: 0
+                    Events: 9154
+           Internal Events: 0
+           TCP Port Filter
+                  Filtered: 0
+                 Inspected: 0
+                   Tracked: 769750
+           UDP Port Filter
+                  Filtered: 0
+                 Inspected: 0
+                   Tracked: 36
+===============================================================================
+HTTP Inspect - encodings (Note: stream-reassembled packets included):
+    POST methods:                         0         
+    GET methods:                          127       
+    HTTP Request Headers extracted:       1623      
+    Avg Request Header length:            631.32    
+    HTTP Request Cookies extracted:       0         
+    Avg Request Cookie length:            n/a       
+    Post parameters extracted:            0         
+    HTTP response Headers extracted:      124       
+    Avg Response Header length:           0.00      
+    HTTP Response Cookies extracted:      0         
+    Avg Response Cookie length:           n/a       
+    Unicode:                              61        
+    Double unicode:                       0         
+    Non-ASCII representable:              188       
+    Directory traversals:                 0         
+    Extra slashes ("//"):                 0         
+    Self-referencing paths ("./"):        0         
+    HTTP Response Gzip packets extracted: 0         
+    Gzip Compressed Data Processed:       n/a       
+    Gzip Decompressed Data Processed:     n/a       
+    Http/2 Rebuilt Packets:               0         
+    Total packets processed:              25408     
+===============================================================================
+SMTP Preprocessor Statistics
+  Total sessions                                    : 2
+  Max concurrent sessions                           : 2
+  Base64 attachments decoded                        : 0
+  Total Base64 decoded bytes                        : 0
+  Quoted-Printable attachments decoded              : 0
+  Total Quoted decoded bytes                        : 0
+  UU attachments decoded                            : 0
+  Total UU decoded bytes                            : 0
+  Non-Encoded MIME attachments extracted            : 0
+  Total Non-Encoded MIME bytes extracted            : 0
+===============================================================================
+dcerpc2 Preprocessor Statistics
+  Total sessions: 0
+===============================================================================
+SSL Preprocessor:
+   SSL packets decoded: 56        
+          Client Hello: 10        
+          Server Hello: 10        
+           Certificate: 6         
+           Server Done: 14        
+   Client Key Exchange: 4         
+   Server Key Exchange: 2         
+         Change Cipher: 8         
+              Finished: 0         
+    Client Application: 0         
+    Server Application: 4         
+                 Alert: 0         
+  Unrecognized records: 28        
+  Completed handshakes: 0         
+        Bad handshakes: 0         
+      Sessions ignored: 2         
+    Detection disabled: 2         
+===============================================================================
+SIP Preprocessor Statistics
+  Total sessions: 0
+===============================================================================
+Reputation Preprocessor Statistics
+  Total Memory Allocated: 0
+===============================================================================
+Snort exiting
